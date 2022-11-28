@@ -1,0 +1,66 @@
+fun main(args: Array<String>) {
+
+    print(vocal_que_mas_se_repite("aaaeeeeeiiiiiiiiiiiioooooooouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu"))
+
+}
+
+fun vocal_que_mas_se_repite(texto: String?) {
+
+    var texto: String? = texto?.lowercase()
+
+    var posicion: Int; var posicion2:Int;var posicion3:Int
+    var posicion4: Int; var posicion5:Int
+
+    var a = 0; var e = 0; var i = 0; var o = 0; var u = 0;
+
+    if (texto != null) {
+        posicion = texto!!.indexOf("a")
+        while (posicion != -1) {
+            a++
+            posicion = texto.indexOf("a", posicion + 1)
+        }
+
+        posicion2 = texto!!.indexOf("e")
+        while (posicion2 != -1) {
+            e++
+            posicion2 = texto.indexOf("e", posicion2 + 1)
+        }
+
+        posicion3 = texto!!.indexOf("i")
+        while (posicion3 != -1) {
+            i++
+            posicion3 = texto.indexOf("i", posicion3 + 1)
+        }
+
+        posicion4 = texto!!.indexOf("o")
+        while (posicion4 != -1) {
+            o++
+            posicion4 = texto.indexOf("o", posicion4 + 1)
+        }
+
+        posicion5 = texto!!.indexOf("u")
+        while (posicion5 != -1) {
+            u++
+            posicion5 = texto.indexOf("u", posicion5 + 1)
+        }
+
+        when {
+            a > e && a > i && a > o && a > u -> println("La vocal que mas se repite es a")
+            e > a && e > i && e > o && e > u -> println("La vocal que mas se repite es e")
+            i > e && i > a && i > o && i > u -> println("La vocal que mas se repite es i")
+            o > e && o > i && o > a && o > u -> println("La vocal que mas se repite es o")
+            u > e && u > i && u > o && u > a -> println("La vocal que mas se repite es u")
+            else -> println("No hay ninguna vocal")
+        }
+
+    } else println("El texto es nulo")
+
+}
+
+/*
+ * Enunciado: Crea un función que reciba un texto y retorne la vocal que
+ * más veces se repita.
+ * - Ten cuidado con algunos casos especiales.
+ * - Si no hay vocales podrá devolver vacío.
+ */
+
